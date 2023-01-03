@@ -32,7 +32,9 @@ if selected == 'Home':
             st.header("Miguel Castañeda")
             st.subheader("A Data Scientist from Mexico")
             st.write("Contact information")
-            st.write("""[GitHub](https://github.com/CAMM961001)""")
+            st.write(f"""
+            <a target="_self" href="https://github.com/CAMM961001">
+                <button>GitHub</button></a>""", unsafe_allow_html=True)
 
 elif selected == "Resume":
     with st.container():
