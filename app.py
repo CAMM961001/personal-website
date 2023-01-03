@@ -1,50 +1,45 @@
 import utils
 import streamlit as st
-from PIL import Image
 from streamlit_lottie import st_lottie
 from streamlit_option_menu import option_menu
+from about_me import AboutMe
 
 #Site settings
 settings = utils.Settings()
 st.set_page_config(page_title=f"{settings.page_title} - Home", layout=settings.layout)
 
-#Site assets
-profile_pict = Image.open("./images/Profile.jpg")
-
-#Horizontal menu
+# --- HORIZONTAL MENU ---
 selected = option_menu(
     menu_title=None,
-    options=['Home', 'Resume', 'Portfolio', 'Contact Me'],
+    options=settings.pages,
     icons=['house', 'book', 'folder2-open', 'envelope'],
     menu_icon='cast',
     default_index=0,
     orientation='horizontal'
 )
 
-#Pages
-if selected == 'Home':
+# --- ABOUT ME ---
+if selected == settings.pages[0]:
+    about_me = AboutMe()
+    st.title(about_me.page_title)
+    content, contact_info = st.columns((2, 1))
+
     with st.container():
-        st.title("About Me")
-        content, contact_info = st.columns((2, 1))
-
         with contact_info:
-            st.image(profile_pict)
-            st.header("Miguel Castañeda")
-            st.subheader("A Data Scientist from Mexico")
-            st.write("Contact information")
-            st.write(f"""
-            <a target="_self" href="https://github.com/CAMM961001">
-                <button>GitHub</button></a>""", unsafe_allow_html=True)
+            about_me.personal_info()
 
-elif selected == "Resume":
+# --- RESUME ---
+elif selected == settings.pages[1]:
     with st.container():
         st.title("Resume")
 
-elif selected == "Portfolio":
+# --- PORTFOLIO ---
+elif selected == settings.pages[2]:
     with st.container():
         st.title("Portfolio")
 
-elif selected == "Contact Me":
+# --- CONTACT ---
+elif selected == settings.pages[3]:
     with st.container():
         utils.local_css("./style/style.css")
         aboutme_animation = utils.load_lottie_url("https://assets3.lottiefiles.com/packages/lf20_v7gj8hb1.json")
@@ -64,4 +59,3 @@ elif selected == "Contact Me":
             st.markdown(contact_form, unsafe_allow_html=True)
         with right_column:
             st_lottie(aboutme_animation, height=350, key="data science")
-        
