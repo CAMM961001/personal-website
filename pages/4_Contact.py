@@ -22,6 +22,7 @@ with st.container():
             <button type="submit">Send</button>
         </form>"""
     with left_column:
+        st.write("##")
         st.markdown(contact_form, unsafe_allow_html=True)
     with right_column:
         st_lottie(aboutme_animation, height=300, key="data science")
