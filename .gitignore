@@ -1,5 +1,6 @@
 #Virtual enviroment directory
 venv/*
 
-#Jupyter cache
+#Python cache
 **/.ipynb_checkpoints/*
+**/__pycache__/*
