@@ -4,6 +4,7 @@ from streamlit_lottie import st_lottie
 
 settings = utils.Settings()
 st.set_page_config(page_title=f"{settings.page_title} - Contact", layout=settings.layout)
+utils.local_css("./style/style.css")
 
 #Aassets
 aboutme_animation = utils.load_lottie_url("https://assets3.lottiefiles.com/packages/lf20_v7gj8hb1.json")
