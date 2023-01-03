@@ -1,7 +1,6 @@
 import requests
 import streamlit as st
 
-
 def load_lottie_url(url):
     r = requests.get(url)
     if r.status_code != 200:
@@ -17,3 +16,4 @@ class Settings:
         self.page_title = "Miguel Castaneda"
         self.layout = "wide"
         self.pages = ['Home', 'Resume', 'Portfolio', 'Contact Me']
+        self.menu_icons = ['house', 'book', 'folder2-open', 'envelope']
