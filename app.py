@@ -12,7 +12,7 @@ st.set_page_config(page_title=f"{settings.page_title} - Home", layout=settings.l
 selected = option_menu(
     menu_title=None,
     options=settings.pages,
-    icons=['house', 'book', 'folder2-open', 'envelope'],
+    icons=settings.menu_icons,
     menu_icon='cast',
     default_index=0,
     orientation='horizontal'
@@ -22,10 +22,12 @@ selected = option_menu(
 if selected == settings.pages[0]:
     about_me = AboutMe()
     st.title(about_me.page_title)
-    content, contact_info = st.columns((2, 1))
+    content, personl_info = st.columns((2, 1), gap='large')
 
     with st.container():
-        with contact_info:
+        with content:
+            about_me.main_content()
+        with personl_info:
             about_me.personal_info()
 
 # --- RESUME ---
