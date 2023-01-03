@@ -12,13 +12,16 @@ st.set_page_config(page_title=f"{settings.page_title} - Home", layout=settings.l
 profile_pict = Image.open("./images/Profile.jpg")
 
 #Horizontal menu
-with st.sidebar:
-    selected = option_menu(
-        menu_title=None,
-        options=['Home', 'Resume', 'Portfolio', 'Contact'],
-        icons=['house', 'book', 'suitcase', 'envelope'],
-    )
+selected = option_menu(
+    menu_title=None,
+    options=['Home', 'Resume', 'Portfolio', 'Contact Me'],
+    icons=['house', 'book', 'folder2-open', 'envelope'],
+    menu_icon='cast',
+    default_index=0,
+    orientation='horizontal'
+)
 
+#Pages
 if selected == 'Home':
     with st.container():
         st.title("About Me")
@@ -39,13 +42,13 @@ elif selected == "Portfolio":
     with st.container():
         st.title("Portfolio")
 
-elif selected == "Contact":
+elif selected == "Contact Me":
     with st.container():
         utils.local_css("./style/style.css")
         aboutme_animation = utils.load_lottie_url("https://assets3.lottiefiles.com/packages/lf20_v7gj8hb1.json")
         
         st.title("Contact Me")
-        left_column, right_column = st.columns(2)
+        left_column, right_column = st.columns((2,1))
         contact_form = """
             <form action="https://formsubmit.co/miguel.castama@outlook.com" method="POST">
                 <input type="hidden" name="_captcha" value="false">
@@ -58,5 +61,5 @@ elif selected == "Contact":
             st.write("##")
             st.markdown(contact_form, unsafe_allow_html=True)
         with right_column:
-            st_lottie(aboutme_animation, height=300, key="data science")
+            st_lottie(aboutme_animation, height=350, key="data science")
         
