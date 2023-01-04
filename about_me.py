@@ -1,5 +1,8 @@
+import utils
 import streamlit as st
 from PIL import Image
+
+settings = utils.Settings()
 
 class AboutMe:
     def __init__(self):
@@ -16,7 +19,7 @@ class AboutMe:
         unam_url = '<a href="http://www.fi-a.unam.mx/" style="color: #F63366; text-decoration:none;">UNAM School of Engineering</a>'
         unammotorsports = '<a href="https://unam.pro/" style="color: #F63366; text-decoration:none;">UNAM Motorsports</a>'
         content = f'''
-        <p style="text-align: justify; font-size: 20px">
+        <p style="text-align: justify; font-size: {settings.fontsize}px">
             <br>
             I am a data scientist with expierence in manufacturing processes for automotive industry, and
             automation services for financial sector. I am currently studying a full time MSc. in Data 
@@ -47,7 +50,7 @@ class AboutMe:
         <div style="text-align: center">
             <h2>Miguel Ángel Castañeda Martínez</h2>
             <h4>Data Scientist from Mexico</h3>
-            <p style="font-size: 20px">
+            <p style="font-size: {settings.fontsize}px">
             </p>
         </div>'''
         
