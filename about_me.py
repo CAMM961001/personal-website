@@ -7,7 +7,7 @@ settings = utils.Settings()
 class AboutMe:
     def __init__(self):
         self.page_title = 'About Me'
-        self.profile_pict = Image.open('./images/Profile.jpg')
+        self.profile_pict = Image.open('./images/Profile.png')
 
     def main_content(self):
         itam_url = '<a href="https://mcdatos.itam.mx/es" style="color: #F63366; text-decoration:none;">ITAM</a>'
