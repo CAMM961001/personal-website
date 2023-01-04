@@ -3,6 +3,7 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 from streamlit_option_menu import option_menu
 from about_me import AboutMe
+from resume import Resume
 
 #Site settings
 settings = utils.Settings()
@@ -15,8 +16,7 @@ selected = option_menu(
     icons=settings.menu_icons,
     menu_icon='cast',
     default_index=0,
-    orientation='horizontal'
-)
+    orientation='horizontal')
 
 # --- ABOUT ME ---
 if selected == settings.pages[0]:
@@ -29,11 +29,17 @@ if selected == settings.pages[0]:
             about_me.main_content()
         with personl_info:
             about_me.personal_info()
+    
+    st.write("---")
 
 # --- RESUME ---
 elif selected == settings.pages[1]:
-    with st.container():
-        st.title("Resume")
+    resume = Resume()
+    st.title(resume.page_title)
+    resume.header_section()
+    st.write('---')
+
+    resume.education_section()
 
 # --- PORTFOLIO ---
 elif selected == settings.pages[2]:
