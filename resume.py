@@ -59,8 +59,34 @@ class Resume:
                 st.write('####')
         f.close()
 
-    def work_section(self):
-        st.title("Work History")
+    def job_section(self):
+        st.title('Job History')
+        with open(self.resume_contets) as f:
+            data = json.load(f)['experience']
+            
+            for idx in reversed(range(len(data))):
+                with st.container():
+                    st.subheader(data[idx]['company'])
+                    st.caption(data[idx]['location'])
+                    job_history = data[idx]['job_history']
+                    
+                    for jobnum in reversed(range(len(job_history))):
+                        date, content = st.columns((1, 2), gap='medium')
+                        with date:
+                            date_content = f'''
+                            <div style="text-align: right">
+                                <p style="font-size: {settings.fontsize}px">{job_history[jobnum]['date']}</p>
+                            </div>
+                            '''
+                            st.markdown(date_content, unsafe_allow_html=True)
+
+                        with content:
+                            st.markdown(f'<div style="text-align: left"><h4>{job_history[jobnum]["role"]}</h4>', unsafe_allow_html=True)
+                            for line in job_history[jobnum]['description']:
+                                st.write(line)
+                                
+                st.write('####')
+        f.close()
 
     def skills_section(self):
         st.title("Skills & Software")
