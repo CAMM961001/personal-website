@@ -44,7 +44,7 @@ elif selected == settings.pages[1]:
     st.write('---')
     resume.work_section()
     st.write('---')
-    resume.software_section()
+    resume.skills_section()
     st.write('---')
 
 # --- PORTFOLIO ---
