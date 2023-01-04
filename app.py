@@ -59,9 +59,8 @@ elif selected == settings.pages[3]:
     contact = Contact()
     st.title(contact.page_title)
     utils.social_media_buttons(align='left')
-    
+
     with st.container():
-        utils.local_css("./style/style.css")
         email_animation = utils.load_lottie_url("https://assets3.lottiefiles.com/packages/lf20_v7gj8hb1.json")
         
         left_column, right_column = st.columns((2,1))

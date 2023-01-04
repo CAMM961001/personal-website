@@ -8,6 +8,7 @@ class Contact:
         self.page_title = 'Contact Me'
 
     def render_contact_form(self):
+        utils.local_css("./style/style.css")
         contact_form = """
                 <form action="https://formsubmit.co/miguel.castama@outlook.com" method="POST">
                     <input type="hidden" name="_captcha" value="false">
