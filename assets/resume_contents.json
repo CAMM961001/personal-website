@@ -1,0 +1,20 @@
+{
+    "education":
+    [
+        {
+            "date":"August 2014 - July 2019",
+            "univ":"Universidad Nacional Autónoma de México",
+            "degree":"BSc. in Mechanical Engineering"
+        },
+        {
+            "date":"August 2021 - April 2022",
+            "univ":"Instituto Tecnológico Autónomo de México",
+            "degree":"Grad. Certificate in Data Science and Machine Learning applied to Financial Markets"
+        },
+        {
+            "date":"August 2022 - Present",
+            "univ":"Instituto Tecnológico Autónomo de México",
+            "degree":"MSc. in Data Science"
+        }
+    ]
+}
