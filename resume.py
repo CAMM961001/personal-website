@@ -31,7 +31,7 @@ class Resume:
         f.close()
 
     def education_section(self):
-        st.title("Education")
+        st.header("Education")
         with open(self.resume_contets) as f:
             data = json.load(f)['education']
             
@@ -60,7 +60,7 @@ class Resume:
         f.close()
 
     def job_section(self):
-        st.title('Job History')
+        st.header('Job History')
         with open(self.resume_contets) as f:
             data = json.load(f)['experience']
             
@@ -92,13 +92,19 @@ class Resume:
         f.close()
 
     def skills_section(self):
-        st.title("Skills & Software")
+        st.header("Skills & Software")
+        st.write(f'''
+        - Problem solving
+        - Team-oriented leadership
+        - Cross-functional team management
+        - Advanced data analytics
+        ''')
         analytics, dev, bi, storage = st.columns(4, gap='medium')
         with st.container():
             with analytics:
                 header = '''
                 <div style="text-align: center">
-                    <h3>Advanced Analytics</h3>
+                    <h4>Advanced Analytics</h4>
                     <p></p>
                 </div>
                 '''
@@ -128,7 +134,7 @@ class Resume:
             with dev:
                 header = '''
                 <div style="text-align: center">
-                    <h3>Development</h3>
+                    <h4>Development</h4>
                     <p></p>
                 </div>
                 '''
@@ -158,7 +164,7 @@ class Resume:
             with bi:
                 header = '''
                 <div style="text-align: center">
-                    <h3>Bussines Inteligence</h3>
+                    <h4>Bussines Inteligence</h4>
                     <p></p>
                 </div>
                 '''
@@ -188,7 +194,7 @@ class Resume:
             with storage:
                 header = '''
                 <div style="text-align: center">
-                    <h3>Data Processing & Storage</h3>
+                    <h4>Data Processing & Storage</h4>
                     <p></p>
                 </div>
                 '''
@@ -214,8 +220,9 @@ class Resume:
 
                 #Add plot to streamlit
                 st.pyplot(fig=fig)
+        
         st.write("###")
         st.markdown(
-            f'''<div style="font-size: {settings.fontsize}px; text-align: center">
-                    Skill metric ranges from 1 as minimum  value to 10 as maximum value
+            f'''<div style="font-size: 15px; text-align: center">
+                    Software mastery scale ranges from 1 as minimum  value to 10 as maximum value
                 </div>''', unsafe_allow_html=True)
