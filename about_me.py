@@ -10,31 +10,23 @@ class AboutMe:
         self.profile_pict = Image.open('./assets/Profile.png')
 
     def main_content(self):
-        itam_url = '<a href="https://mcdatos.itam.mx/es" style="color: #F63366; text-decoration:none;">ITAM</a>'
-        inai_url = '<a href="https://home.inai.org.mx/" style="color: #F63366; text-decoration:none;">INAI</a>'
-        cdas_url = '<a href="https://www.facebook.com/dataalgosocitam/" style="color: #F63366; text-decoration:none;">CDAS</a>'
-        pross_url = '<a href="https://ppross.mx/" style="color: #F63366; text-decoration:none;">PROSS</a>'
-        bilstein_url = '<a href="https://bilstein.com/en-us/about-us/" style="color: #F63366; text-decoration:none;">Bilstein</a>'
-        fsae_url = '<a href="https://www.fsaeonline.com/" style="color: #F63366; text-decoration:none;">FSAE</a>'
-        unam_url = '<a href="http://www.fi-a.unam.mx/" style="color: #F63366; text-decoration:none;">UNAM School of Engineering</a>'
-        unammotorsports = '<a href="https://unam.pro/" style="color: #F63366; text-decoration:none;">UNAM Motorsports</a>'
         content = f'''
         <p style="text-align: justify; font-size: {settings.fontsize}px">
             <br>
             I am a data scientist with expierence in manufacturing processes for automotive industry, and
             automation services for financial sector. I am currently studying a full time MSc. in Data 
-            Science at {itam_url}, where I additionally volunteer as Data Scientist with {inai_url}
-            (Mexico's National Institue for Information Accessibility) through {cdas_url}, which is ITAM's
+            Science at {settings.itam_url}, where I additionally volunteer as Data Scientist with {settings.inai_url}
+            (Mexico's National Institue for Information Accessibility) through {settings.cdas_url}, which is ITAM's
             extracurricular organization responsible for tackling diverse social topics powered by data
             analytics. In here, I employ web scrapping and NLP technics to leverage INAI's capabilities
             to foresee public domain trending topics.
             </br>
             <br>
-            Prior to this, I worked at {pross_url} initially as Compliance Analyst and then as Project
+            Prior to this, I worked at {settings.pross_url} initially as Compliance Analyst and then as Project
             Manager for a year and a half. Before that, I perfomed an engineering role with the Manufacturing
-            Proces Plann Team at {bilstein_url}. In addition, during my Bachelor in Mechanical Engineering
-            at {unam_url}, I participated during four years in the {fsae_url} design series with
-            {unammotorsports} which is UNAM's representative team in the category. In here, I played
+            Proces Plann Team at {settings.bilstein_url}. In addition, during my Bachelor in Mechanical Engineering
+            at {settings.unam_url}, I participated during four years in the {settings.fsae_url} design series with
+            {settings.unammotorsports} which is UNAM's representative team in the category. In here, I played
             the role of Design Engineer in seasons 2016 - 2017, D&M Engineering Principal in season 2018,
             and Team Principal in season 2019.
             </br>
