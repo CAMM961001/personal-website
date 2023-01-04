@@ -17,3 +17,4 @@ class Settings:
         self.layout = "wide"
         self.pages = ['Home', 'Resume', 'Portfolio', 'Contact Me']
         self.menu_icons = ['house', 'book', 'folder2-open', 'envelope']
+        self.fontsize = 20
