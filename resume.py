@@ -49,7 +49,9 @@ class Resume:
                         content = f'''
                         <div style="text-align: left">
                             <h4>{education_content[idx]['univ']}</h4>
-                            <h5>{education_content[idx]['degree']}</h5>
+                            <p style="font-size: {settings.fontsize}px">
+                                {education_content[idx]['degree']}
+                            </p>
                         </div>
                         '''
                         st.markdown(content, unsafe_allow_html=True)
