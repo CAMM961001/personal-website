@@ -3,3 +3,4 @@ streamlit-lottie
 streamlit-option-menu
 requests
 Pillow
+matplotlib
