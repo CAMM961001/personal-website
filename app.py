@@ -24,7 +24,7 @@ selected = option_menu(
 if selected == settings.pages[0]:
     about_me = AboutMe()
     st.title(about_me.page_title)
-    content, personl_info = st.columns((2, 1), gap='large')
+    content, personl_info = st.columns((2.5, 1), gap='large')
 
     with st.container():
         with content:
