@@ -56,7 +56,7 @@ class Resume:
                         </div>
                         '''
                         st.markdown(content, unsafe_allow_html=True)
-                st.write('##')
+                st.write('####')
         f.close()
 
     def work_section(self):
