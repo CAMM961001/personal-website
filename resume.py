@@ -66,7 +66,18 @@ class Resume:
             
             for idx in reversed(range(len(data))):
                 with st.container():
-                    st.subheader(data[idx]['company'])
+                    
+                    subheader = f'''
+                    <p style="text-align: justify; font-size: {settings.fontsize}px">
+                        <h3><a href="{data[idx]['company_site']}" style="color: #843c54; text-decoration:none;">{data[idx]['company']}</a></h3>
+                    </p>'''
+                    st.markdown(subheader, unsafe_allow_html=True)
+                    
+                    
+                    
+                    
+                    
+                    #st.subheader(data[idx]['company'])
                     st.caption(data[idx]['location'])
                     job_history = data[idx]['job_history']
                     
