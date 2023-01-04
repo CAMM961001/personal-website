@@ -74,7 +74,7 @@ class Resume:
             '''
             st.markdown(header, unsafe_allow_html=True)
             #Plot
-            fig = plt.figure()
+            fig = plt.figure(figsize=(6,6))
             ax = fig.add_subplot(projection='polar')
 
             packages = ['Numpy', 'Scipy','Pandas','Matplotlib','ScikitLearn','TensorFlow','Tidyverse', 'ggplot2']
@@ -104,7 +104,7 @@ class Resume:
             '''
             st.markdown(header, unsafe_allow_html=True)
             #Plot
-            fig = plt.figure()
+            fig = plt.figure(figsize=(6,6))
             ax = fig.add_subplot(projection='polar')
 
             packages = ['Flask','SQL Connectors','Docker','Git-GitHub']
@@ -119,6 +119,36 @@ class Resume:
             # Plot actual sales graph
             ax.plot(theta, values, color='red')
             ax.fill(theta, values, color='red', alpha=0.1)
+            ax.set_yticks([5,6,7,8,9,10])
+            ax.grid(alpha=0.4)
+
+            #Add plot to streamlit
+            st.pyplot(fig=fig)
+
+        with bi:
+            header = '''
+            <div style="text-align: center">
+                <h3>Bussines Inteligence</h3>
+                <p></p>
+            </div>
+            '''
+            st.markdown(header, unsafe_allow_html=True)
+            #Plot
+            fig = plt.figure(figsize=(6,6))
+            ax = fig.add_subplot(projection='polar')
+
+            packages = ['Excel','Excel VBA','R Shiny', 'Streamlit']
+            values = [10,7,7,9,10]
+            
+            # Initialise the spider plot by setting figure size and polar projection
+            theta = np.linspace(0, 2 * np.pi, len(values))
+            
+            # Arrange the grid into number of sales equal parts in degrees
+            lines, labels = plt.thetagrids(range(0, 360, int(360/len(packages))), (packages), fontsize=16)
+            
+            # Plot actual sales graph
+            ax.plot(theta, values, color='blue')
+            ax.fill(theta, values, color='blue', alpha=0.1)
             ax.set_yticks([5,6,7,8,9,10])
             ax.grid(alpha=0.4)
 
