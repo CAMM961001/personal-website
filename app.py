@@ -71,3 +71,5 @@ elif selected == settings.pages[3]:
             st_lottie(email_animation, height=350, key="data science")
 
     st.write('---')
+
+settings.site_footer()

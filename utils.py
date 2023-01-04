@@ -45,6 +45,8 @@ class Settings:
         self.fontsize = 20
 
         #URL for other websites
+        self.site_repo = '<a href="https://github.com/CAMM961001/personal-website" style="color: #F63366; text-decoration:none;">Github repository</a>'
+        self.streamlit_url = '<a href="https://streamlit.io/" style="color: #F63366; text-decoration:none;">Streamlit</a>'
         self.itam_url = '<a href="https://mcdatos.itam.mx/es" style="color: #F63366; text-decoration:none;">ITAM</a>'
         self.inai_url = '<a href="https://home.inai.org.mx/" style="color: #F63366; text-decoration:none;">INAI</a>'
         self.cdas_url = '<a href="https://www.facebook.com/dataalgosocitam/" style="color: #F63366; text-decoration:none;">CDAS</a>'
@@ -53,3 +55,12 @@ class Settings:
         self.fsae_url = '<a href="https://www.fsaeonline.com/" style="color: #F63366; text-decoration:none;">FSAE</a>'
         self.unam_url = '<a href="http://www.fi-a.unam.mx/" style="color: #F63366; text-decoration:none;">UNAM School of Engineering</a>'
         self.unammotorsports = '<a href="https://unam.pro/" style="color: #F63366; text-decoration:none;">UNAM Motorsports</a>'
+
+    def site_footer(self):
+        footer = f'''
+        <p style="text-align: center; font-size: 15px">
+            <br>Copyright Miguel Castaneda 2023</br>
+            Built with {self.site_repo} and {self.streamlit_url}</br>
+        </p>'''
+        
+        st.markdown(footer, unsafe_allow_html=True)
