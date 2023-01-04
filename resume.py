@@ -1,3 +1,4 @@
+import json
 import utils
 import streamlit as st
 
@@ -7,12 +8,14 @@ class Resume:
     def __init__(self):
         self.page_title = 'Resume'
         self.resume_file = './assets/resume.pdf'
+        self.resume_contets = './assets/resume_contents.json'
         self.resume_description = f'''
         <p style="font-size: {settings.fontsize}px">
         Data Scientist & Masters candidate, <br>
         assisting enterprises towards data driven decisions.
         </p>
         '''
+        
 
     def header_section(self):
         st.markdown(self.resume_description, unsafe_allow_html=True)
@@ -28,5 +31,30 @@ class Resume:
 
     def education_section(self):
         st.title("Education")
+        with open(self.resume_contets) as f:
+            education_content = json.load(f)['education']
+            
+            for idx in reversed(range(len(education_content))):
+                with st.container():
+                    date, content = st.columns((1, 2), gap='medium')
+                    with date:
+                        date_content = f'''
+                        <div style="text-align: right">
+                            <p style="font-size: {settings.fontsize}px">{education_content[idx]['date']}</p>
+                        </div>
+                        '''
+                        st.markdown(date_content, unsafe_allow_html=True)
+
+                    with content:
+                        content = f'''
+                        <div style="text-align: left">
+                            <h4>{education_content[idx]['univ']}</h4>
+                            <h5>{education_content[idx]['degree']}</h5>
+                        </div>
+                        '''
+                        st.markdown(content, unsafe_allow_html=True)
+                st.write('##')
+        f.close()
+
 
         
