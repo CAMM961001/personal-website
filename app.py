@@ -38,8 +38,8 @@ elif selected == settings.pages[1]:
     st.title(resume.page_title)
     resume.header_section()
     st.write('---')
-
     resume.education_section()
+    st.write('---')
 
 # --- PORTFOLIO ---
 elif selected == settings.pages[2]:
