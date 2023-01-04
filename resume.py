@@ -1,6 +1,7 @@
 import json
 import utils
 import streamlit as st
+import matplotlib.pyplot as plt
 
 settings = utils.Settings()
 
@@ -58,5 +59,9 @@ class Resume:
                 st.write('##')
         f.close()
 
+    def work_section(self):
+        st.title("Work History")
 
+    def software_section(self):
+        st.title("Software")
         
