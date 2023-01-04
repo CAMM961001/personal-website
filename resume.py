@@ -32,15 +32,15 @@ class Resume:
     def education_section(self):
         st.title("Education")
         with open(self.resume_contets) as f:
-            education_content = json.load(f)['education']
+            data = json.load(f)['education']
             
-            for idx in reversed(range(len(education_content))):
+            for idx in reversed(range(len(data))):
                 with st.container():
                     date, content = st.columns((1, 2), gap='medium')
                     with date:
                         date_content = f'''
                         <div style="text-align: right">
-                            <p style="font-size: {settings.fontsize}px">{education_content[idx]['date']}</p>
+                            <p style="font-size: {settings.fontsize}px">{data[idx]['date']}</p>
                         </div>
                         '''
                         st.markdown(date_content, unsafe_allow_html=True)
@@ -48,9 +48,9 @@ class Resume:
                     with content:
                         content = f'''
                         <div style="text-align: left">
-                            <h4>{education_content[idx]['univ']}</h4>
+                            <h4>{data[idx]['univ']}</h4>
                             <p style="font-size: {settings.fontsize}px">
-                                {education_content[idx]['degree']}
+                                {data[idx]['degree']}
                             </p>
                         </div>
                         '''
