@@ -62,8 +62,8 @@ class Resume:
     def work_section(self):
         st.title("Work History")
 
-    def software_section(self):
-        st.title("Hard Skills")
+    def skills_section(self):
+        st.title("Skills & Software")
         analytics, dev, bi, storage = st.columns(4, gap='medium')
         with analytics:
             header = '''
@@ -149,6 +149,36 @@ class Resume:
             # Plot actual sales graph
             ax.plot(theta, values, color='blue')
             ax.fill(theta, values, color='blue', alpha=0.1)
+            ax.set_yticks([5,6,7,8,9,10])
+            ax.grid(alpha=0.4)
+
+            #Add plot to streamlit
+            st.pyplot(fig=fig)
+        
+        with storage:
+            header = '''
+            <div style="text-align: center">
+                <h3>Data Processing & Storage</h3>
+                <p></p>
+            </div>
+            '''
+            st.markdown(header, unsafe_allow_html=True)
+            #Plot
+            fig = plt.figure(figsize=(6,6))
+            ax = fig.add_subplot(projection='polar')
+
+            packages = ['Postgres','SQLServer','SQLite', 'Bash']
+            values = [9,8,7,8,9]
+            
+            # Initialise the spider plot by setting figure size and polar projection
+            theta = np.linspace(0, 2 * np.pi, len(values))
+            
+            # Arrange the grid into number of sales equal parts in degrees
+            lines, labels = plt.thetagrids(range(0, 360, int(360/len(packages))), (packages), fontsize=16)
+            
+            # Plot actual sales graph
+            ax.plot(theta, values, color='purple')
+            ax.fill(theta, values, color='purple', alpha=0.1)
             ax.set_yticks([5,6,7,8,9,10])
             ax.grid(alpha=0.4)
 
