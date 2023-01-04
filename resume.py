@@ -84,8 +84,6 @@ class Resume:
                             st.markdown(f'<div style="text-align: left"><h4>{job_history[jobnum]["role"]}</h4>', unsafe_allow_html=True)
                             for line in job_history[jobnum]['description']:
                                 st.write(line)
-                                
-                st.write('####')
         f.close()
 
     def skills_section(self):
