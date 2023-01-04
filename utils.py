@@ -11,9 +11,9 @@ def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-def social_media_buttons():
-    social_media = """
-            <div style="text-align: left"><p></p>
+def social_media_buttons(align='center'):
+    social_media = f"""
+            <div style="text-align: {align}"><p></p>
                     <p>
                         <a href="https://github.com/CAMM961001">
                             <button type="button" class="btn btn-success">
