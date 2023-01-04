@@ -1,6 +1,7 @@
 import json
 import utils
 import streamlit as st
+import numpy as np
 import matplotlib.pyplot as plt
 
 settings = utils.Settings()
@@ -16,7 +17,6 @@ class Resume:
         assisting enterprises towards data driven decisions.
         </p>
         '''
-        
 
     def header_section(self):
         st.markdown(self.resume_description, unsafe_allow_html=True)
@@ -63,5 +63,64 @@ class Resume:
         st.title("Work History")
 
     def software_section(self):
-        st.title("Software")
-        
+        st.title("Hard Skills")
+        analytics, dev, bi, storage = st.columns(4, gap='medium')
+        with analytics:
+            header = '''
+            <div style="text-align: center">
+                <h3>Advanced Analytics</h3>
+                <p></p>
+            </div>
+            '''
+            st.markdown(header, unsafe_allow_html=True)
+            #Plot
+            fig = plt.figure()
+            ax = fig.add_subplot(projection='polar')
+
+            packages = ['Numpy', 'Scipy','Pandas','Matplotlib','ScikitLearn','TensorFlow','Tidyverse', 'ggplot2']
+            values = [10,8,10,10,8,7,6,7,10]
+            
+            # Initialise the spider plot by setting figure size and polar projection
+            theta = np.linspace(0, 2 * np.pi, len(values))
+            
+            # Arrange the grid into number of sales equal parts in degrees
+            lines, labels = plt.thetagrids(range(0, 360, int(360/len(packages))), (packages), fontsize=16)
+            
+            # Plot actual sales graph
+            ax.plot(theta, values, color='green')
+            ax.fill(theta, values, color='green', alpha=0.1)
+            ax.set_yticks([5,6,7,8,9,10])
+            ax.grid(alpha=0.4)
+
+            #Add plot to streamlit
+            st.pyplot(fig=fig)
+
+        with dev:
+            header = '''
+            <div style="text-align: center">
+                <h3>Development</h3>
+                <p></p>
+            </div>
+            '''
+            st.markdown(header, unsafe_allow_html=True)
+            #Plot
+            fig = plt.figure()
+            ax = fig.add_subplot(projection='polar')
+
+            packages = ['Flask','SQL Connectors','Docker','Git-GitHub']
+            values = [8,9,6,9,8]
+            
+            # Initialise the spider plot by setting figure size and polar projection
+            theta = np.linspace(0, 2 * np.pi, len(values))
+            
+            # Arrange the grid into number of sales equal parts in degrees
+            lines, labels = plt.thetagrids(range(0, 360, int(360/len(packages))), (packages), fontsize=16)
+            
+            # Plot actual sales graph
+            ax.plot(theta, values, color='red')
+            ax.fill(theta, values, color='red', alpha=0.1)
+            ax.set_yticks([5,6,7,8,9,10])
+            ax.grid(alpha=0.4)
+
+            #Add plot to streamlit
+            st.pyplot(fig=fig)
