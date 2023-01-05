@@ -36,6 +36,20 @@ def social_media_buttons(align='center'):
             """
     st.markdown(social_media, unsafe_allow_html=True)
 
+def render_button(url, align='center'):
+    button = f"""
+            <div style="text-align: {align}"><p></p>
+                    <p>
+                        <a href="{url}">
+                            <button type="button" class="btn btn-success">
+                                View wite
+                            </button>
+                        </a>
+                    </p>
+                </div>
+            """
+    st.markdown(button, unsafe_allow_html=True)
+
 class Settings:
     def __init__(self):
         self.page_title = "Miguel Castaneda"
