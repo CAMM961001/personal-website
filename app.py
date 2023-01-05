@@ -54,11 +54,17 @@ elif selected == settings.pages[1]:
 elif selected == settings.pages[2]:
     with st.container():
         st.title("Portfolio")
-
-        HtmlFile = open("./assets/test2.html", 'r', encoding='utf-8')
-        source_code = HtmlFile.read() 
-        print(source_code)
-        components.html(source_code, height=600, scrolling=True)
+        project_url = f'''
+        <p style="text-align: justify; font-size: {settings.fontsize}px">
+            <br>
+                <a href="https://camm961001.quarto.pub/un-enfoque-bayesiano/" style="color: #F63366; text-decoration:none;">
+                    My first project
+                </a>
+            </br>
+        </p>'''
+        
+        st.markdown(project_url, unsafe_allow_html=True)
+        
 
 # --- CONTACT ---
 elif selected == settings.pages[3]:
