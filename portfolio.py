@@ -1,6 +1,7 @@
 import json
 import utils
 import streamlit as st
+from PIL import Image
 
 settings = utils.Settings()
 
@@ -15,13 +16,15 @@ class Portfolio:
 
     def first_row(self):
         with st.container():
-            col1, col2, col3 = st.columns(3, gap='large')
+            col1, col2, col3= st.columns(3, gap='large')
             with col1:
                 st.caption(self.data[0]['contributors'])
+                cover = Image.open('./assets/bayesian-approach.png')
+                st.image(cover)
+                st.subheader(self.data[0]['project_name'])
                 description = ""
                 for line in self.data[0]['description']:
                     description += line
-                
-                description = f'''<p style="text-align: justify; font-size: 18px">{description}</p>'''
+                description = f'''<p style="text-align: justify; font-size: 15px">{description}</p>'''
                 st.markdown(description, unsafe_allow_html=True)
                 utils.render_button(url='https://camm961001.quarto.pub/un-enfoque-bayesiano/')

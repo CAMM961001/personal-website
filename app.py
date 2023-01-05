@@ -27,7 +27,7 @@ selected = option_menu(
 if selected == settings.pages[0]:
     about_me = AboutMe()
 
-    st.title(about_me.page_title)
+    st.title(about_me.page_title,)
     content, personl_info = st.columns((2.5, 1), gap='large')
     with st.container():
         with content:
@@ -56,19 +56,8 @@ elif selected == settings.pages[2]:
     portfolio = Portfolio()
 
     st.title(portfolio.page_title)
-    
-    with st.container():
-        project_url = f'''
-        <p style="text-align: justify; font-size: {settings.fontsize}px">
-            <br>
-                <a href="https://camm961001.quarto.pub/un-enfoque-bayesiano/" style="color: #F63366; text-decoration:none;">
-                    My first project
-                </a>
-            </br>
-        </p>'''
-        
-        st.markdown(project_url, unsafe_allow_html=True)
-        
+    portfolio.first_row()
+    st.write('---') 
 
 # --- CONTACT ---
 elif selected == settings.pages[3]:
