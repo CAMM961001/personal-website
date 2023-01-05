@@ -1,5 +1,6 @@
 import utils
 import streamlit as st
+import streamlit.components.v1 as components
 
 from streamlit_lottie import st_lottie
 from streamlit_option_menu import option_menu
@@ -53,6 +54,11 @@ elif selected == settings.pages[1]:
 elif selected == settings.pages[2]:
     with st.container():
         st.title("Portfolio")
+
+        HtmlFile = open("./assets/test2.html", 'r', encoding='utf-8')
+        source_code = HtmlFile.read() 
+        print(source_code)
+        components.html(source_code, height=600, scrolling=True)
 
 # --- CONTACT ---
 elif selected == settings.pages[3]:
