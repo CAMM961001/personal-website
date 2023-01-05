@@ -7,6 +7,7 @@ from streamlit_option_menu import option_menu
 
 from about_me import AboutMe
 from resume import Resume
+from portfolio import Portfolio
 from contact import Contact
 
 #Site settings
@@ -52,8 +53,11 @@ elif selected == settings.pages[1]:
 
 # --- PORTFOLIO ---
 elif selected == settings.pages[2]:
+    portfolio = Portfolio()
+
+    st.title(portfolio.page_title)
+    
     with st.container():
-        st.title("Portfolio")
         project_url = f'''
         <p style="text-align: justify; font-size: {settings.fontsize}px">
             <br>
