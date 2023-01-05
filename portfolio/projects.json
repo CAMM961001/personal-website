@@ -1,0 +1,15 @@
+{
+    "projects":
+    [
+        {
+            "project_name":"A Bayesian Approach",
+            "site_url":"https://camm961001.quarto.pub/un-enfoque-bayesiano/",
+            "description":
+            [
+                "Line1",
+                "Line2"
+            ],
+            "contributors":"Miguel Castañeda"
+        }
+    ]
+}
