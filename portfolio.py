@@ -18,10 +18,10 @@ class Portfolio:
         with st.container():
             col1, col2, col3= st.columns(3, gap='large')
             with col1:
-                st.caption(self.data[0]['contributors'])
                 cover = Image.open('./assets/bayesian-approach.png')
-                st.image(cover)
                 st.subheader(self.data[0]['project_name'])
+                st.caption(self.data[0]['contributors'])
+                st.image(cover)
                 description = ""
                 for line in self.data[0]['description']:
                     description += line
