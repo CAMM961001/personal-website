@@ -31,7 +31,7 @@ class AboutMe:
             and Team Principal in season 2019.
             </br>
             <br>
-            Finally, here are some of my interest:
+            Finally, here are some of my interests:
                 <ul>
                     <li style="font-size: {settings.fontsize}px">Data Analysis</li>
                     <li style="font-size: {settings.fontsize}px">Data Visualization</li>
