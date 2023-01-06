@@ -8,7 +8,7 @@ settings = utils.Settings()
 class Portfolio:
     def __init__(self):
         self.page_title = 'Portfolio'
-        self.contets = './asstes/projects.json'
+        self.contets = './assets/projects.json'
         with open(self.contets) as f:
             self.data = json.load(f)['projects']
         f.close()
