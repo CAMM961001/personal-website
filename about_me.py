@@ -31,7 +31,14 @@ class AboutMe:
             and Team Principal in season 2019.
             </br>
             <br>
-            Finally, 
+            Finally, here are some of my interest:
+                <ul>
+                    <li style="font-size: {settings.fontsize}px">Data Analysis</li>
+                    <li style="font-size: {settings.fontsize}px">Data Visualization</li>
+                    <li style="font-size: {settings.fontsize}px">Machine Learning</li>
+                    <li style="font-size: {settings.fontsize}px">Statistical Modeling</li>
+                    <li style="font-size: {settings.fontsize}px">MLOps</li>
+                </ul>
             </br>
         </p>'''
         
