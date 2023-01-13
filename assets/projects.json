@@ -4,10 +4,11 @@
         {
             "project_name":"A Bayesian Approach",
             "site_url":"https://camm961001.quarto.pub/un-enfoque-bayesiano/",
+            "source_url":"https://github.com/CAMM961001/bayes-first-steps",
             "description":
             [
-                "Esta es la primera línea del documento, espero que sea lo suficientemente larga como para cubrir la primera ",
-                "columna del primer contenedor en la sección de portafolio de proyectos de mi página personal"
+                "I this brief essay I try to show the differences between a frequentist approach and a bayesian one in ",
+                "statistics, with an applied example."
             ],
             "contributors":"Miguel Castañeda"
         }
