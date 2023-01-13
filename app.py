@@ -14,14 +14,15 @@ from contact import Contact
 settings = utils.Settings()
 st.set_page_config(page_title=f"{settings.page_title} - Home", layout=settings.layout)
 
-# --- HORIZONTAL MENU ---
-selected = option_menu(
-    menu_title=None,
-    options=settings.pages,
-    icons=settings.menu_icons,
-    menu_icon='cast',
-    default_index=0,
-    orientation='horizontal')
+# --- NAVIGATION MENU ---
+with st.sidebar:
+    selected = option_menu(
+        menu_title=None,
+        options=settings.pages,
+        icons=settings.menu_icons,
+        menu_icon='cast',
+        default_index=0)
+        #orientation='horizontal')
 
 # --- ABOUT ME ---
 if selected == settings.pages[0]:
