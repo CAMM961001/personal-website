@@ -25,6 +25,7 @@ class Portfolio:
                 description = ""
                 for line in self.data[0]['description']:
                     description += line
-                description = f'''<p style="text-align: justify; font-size: 15px">{description}</p>'''
+                description = f'''<p style="text-align: justify; font-size: 16px">{description}</p>'''
                 st.markdown(description, unsafe_allow_html=True)
-                utils.render_button(url='https://camm961001.quarto.pub/un-enfoque-bayesiano/')
+                utils.render_button(url=self.data[0]['site_url'])
+                utils.render_button(url=self.data[0]['source_url'], name='View source')
