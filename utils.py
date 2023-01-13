@@ -34,12 +34,12 @@ def social_media_buttons(align='center'):
             """
     st.markdown(social_media, unsafe_allow_html=True)
 
-def render_button(url, align='center'):
+def render_button(url, name='View site', align='center'):
     button = f"""
             <div style="text-align: {align}"><p></p>
                 <a href="{url}">
                     <button type="button" class="btn btn-outline-danger">
-                        View site
+                        {name}
                     </button>
                 </a>
             </div>
