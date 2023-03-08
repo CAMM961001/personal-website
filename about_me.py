@@ -16,7 +16,7 @@ class AboutMe:
             I am a data scientist with expierence in manufacturing processes for automotive industry, and
             automation services for financial sector. I am currently studying a full time MSc. in Data 
             Science at {settings.itam_url}, where I additionally volunteer as Data Scientist with {settings.inai_url}
-            (Mexico's National Institue for Information Accessibility) through {settings.cdas_url}, which is ITAM's
+            (Mexico's National Institute for Information Accessibility) through {settings.cdas_url}, which is ITAM's
             extracurricular organization responsible for tackling diverse social topics powered by data
             analytics. In here, I employ web scrapping and NLP technics to leverage INAI's capabilities
             to foresee public domain trending topics.
