@@ -2,7 +2,9 @@ import json
 import utils
 import streamlit as st
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
 settings = utils.Settings()
 
@@ -30,66 +32,36 @@ class Resume:
                 mime='application/octet-stream')
         f.close()
 
-    def education_section(self):
-        st.header("Education")
-        with open(self.resume_contets) as f:
-            data = json.load(f)['education']
+    def timeline(self):
+        st.header('Timeline')
+        st.write('This is my timeline')
+
+        data = (
+            pd.read_csv('assets/timeline.csv')
+            .assign(fecha = lambda df_: pd.to_datetime(df_.fecha, format='%d/%m/%Y')))
+        
+        fig = go.Figure()
+
+        for tipo in data['tipo'].unique():
+            df_ = data.query(f"tipo=='{tipo}'")
             
-            for idx in reversed(range(len(data))):
-                with st.container():
-                    date, content = st.columns((1, 2), gap='medium')
-                    with date:
-                        date_content = f'''
-                        <div style="text-align: right">
-                            <p style="font-size: {settings.fontsize}px">{data[idx]['date']}</p>
-                        </div>
-                        '''
-                        st.markdown(date_content, unsafe_allow_html=True)
+            fig.add_trace(
+                go.Scatter(
+                    x=df_.fecha
+                    ,y=df_.empresa
+                    ,name=df_.tipo.unique()[0]
+                    ,text=df_.nombre
+                    ,textposition='top center'
+            ))
 
-                    with content:
-                        content = f'''
-                        <div style="text-align: left">
-                            <h4>{data[idx]['univ']}</h4>
-                            <p style="font-size: {settings.fontsize}px">
-                                {data[idx]['degree']}
-                            </p>
-                        </div>
-                        '''
-                        st.markdown(content, unsafe_allow_html=True)
-                st.write('####')
-        f.close()
+        st.plotly_chart(
+                fig
+                ,use_container_width=True
+                ,sharing='streamlit'
+                ,theme='streamlit')
 
-    def job_section(self):
-        st.header('Job History')
-        with open(self.resume_contets) as f:
-            data = json.load(f)['experience']
-            
-            for idx in reversed(range(len(data))):
-                with st.container():
-                    
-                    subheader = f'''
-                    <p style="text-align: justify; font-size: {settings.fontsize}px">
-                        <h3><a href="{data[idx]['company_site']}" style="color: #843c54; text-decoration:none;">{data[idx]['company']}</a></h3>
-                    </p>'''
-                    st.markdown(subheader, unsafe_allow_html=True)
-                    st.caption(data[idx]['location'])
-                    job_history = data[idx]['job_history']
-                    
-                    for jobnum in reversed(range(len(job_history))):
-                        date, content = st.columns((1, 2), gap='medium')
-                        with date:
-                            date_content = f'''
-                            <div style="text-align: right">
-                                <p style="font-size: {settings.fontsize}px">{job_history[jobnum]['date']}</p>
-                            </div>
-                            '''
-                            st.markdown(date_content, unsafe_allow_html=True)
 
-                        with content:
-                            st.markdown(f'<div style="text-align: left"><h4>{job_history[jobnum]["role"]}</h4>', unsafe_allow_html=True)
-                            for line in job_history[jobnum]['description']:
-                                st.write(line)
-        f.close()
+
 
     def skills_section(self):
         st.header("Skills & Software")
