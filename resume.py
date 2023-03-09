@@ -96,7 +96,10 @@ class Resume:
             ticks=data.clase.unique()
             ,labels=data.empresa.unique()
         )
-
+        ax.grid(axis='y', alpha=0.25)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.spines['left'].set_visible(False)
 
         st.pyplot(fig=fig, clear_figure=True)
 
