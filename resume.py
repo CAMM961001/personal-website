@@ -1,3 +1,4 @@
+import json
 import utils
 import streamlit as st
 import numpy as np
@@ -35,41 +36,69 @@ class Resume:
         st.header('Timeline')
         st.write('This is my timeline')
 
+        with open('assets/timeline.json', 'r') as file:
+            data = json.load(file)
+        file.close()
+
         data = (
-            pd.read_csv('assets/timeline.csv')
-            .assign(fecha = lambda df_: pd.to_datetime(df_.fecha, format='%d/%m/%Y')))
+            pd.DataFrame(data)
+            .assign(
+                inicio=lambda df_: pd.to_datetime(df_.inicio, format='%d/%m/%Y')
+                ,fin=lambda df_: pd.to_datetime(df_.fin, format='%d/%m/%Y')
+                ,clase=lambda df_: df_.clase.astype(int)
+                ,delta=lambda df_: df_.delta.astype(int)
+                )
+        )
         
-        fig = go.Figure()
+        fig, ax = plt.subplots(figsize=(16,6))
+        ymin, ymax = data.clase.min() - 0.5, data.clase.max() + 0.5
+        covid_x = pd.to_datetime('20/03/2020', format='%d/%m/%Y')
 
-        for tipo in data['tipo'].unique():
-            df_ = data.query(f"tipo=='{tipo}'")
-            
-            fig.add_trace(
-                go.Scatter(
-                    x=df_.fecha
-                    ,y=df_.empresa
-                    ,hovertext=df_.descripcion
-                    ,name=df_.tipo.unique()[0]
-                    ,text=df_.nombre
-                    ,textposition='top center'
-            ))
-
-        fig.update_traces(
-            line_width=8,
-            marker_size=14)
-        
-        fig.update_layout(
-            xaxis=dict(tickfont=dict(size=18))
-            ,yaxis=dict(tickfont=dict(size=18))
+        ax.plot(
+            [covid_x, covid_x]
+            ,[ymin, ymax]
+            ,color='red',
+            alpha=0.1
+        )
+        ax.text(
+            x=covid_x
+            ,y=ymin + 0.3
+            ,s=' Coronavirus isolation\n is declared in Mexico',
+            alpha=0.4
         )
 
-        st.plotly_chart(
-                fig
-                ,use_container_width=True
-                ,sharing='streamlit'
-                ,theme='streamlit')
+        for idx in range(data.shape[0]):
+            # Gráficas
+            ax.plot(
+                [data.inicio[idx], data.fin[idx]]
+                ,[data.clase[idx], data.clase[idx]]
+                ,linewidth=6
+                ,color=data.color[idx]
+            )
+            ax.scatter(
+                x=[data.inicio[idx], data.fin[idx]]
+                ,y=[data.clase[idx], data.clase[idx]]
+                ,color=data.color[idx]
+                ,s=100
+            )
+            ax.text(
+                x=data.inicio[idx]
+                ,y=data.clase[idx] + 0.35*data.delta[idx]
+                ,s=data.nombre[idx]
+                ,va='center'
+            )
+
+        ax.set_ylim(
+            bottom=ymin
+            ,top=ymax
+        )
+        ax.set_yticks(
+            ticks=data.clase.unique()
+            ,labels=data.empresa.unique()
+        )
 
 
+        st.pyplot(fig=fig, clear_figure=True)
 
 
     def skills_section(self):
