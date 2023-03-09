@@ -1,4 +1,3 @@
-import json
 import utils
 import streamlit as st
 import numpy as np
@@ -49,10 +48,20 @@ class Resume:
                 go.Scatter(
                     x=df_.fecha
                     ,y=df_.empresa
+                    ,hovertext=df_.descripcion
                     ,name=df_.tipo.unique()[0]
                     ,text=df_.nombre
                     ,textposition='top center'
             ))
+
+        fig.update_traces(
+            line_width=8,
+            marker_size=14)
+        
+        fig.update_layout(
+            xaxis=dict(tickfont=dict(size=18))
+            ,yaxis=dict(tickfont=dict(size=18))
+        )
 
         st.plotly_chart(
                 fig
