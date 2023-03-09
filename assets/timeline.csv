@@ -1,17 +1,17 @@
 fecha,nombre,tipo,descripcion,empresa
-01/08/2014,BSc. Mechanical Engineering,Education,Description,UNAM
-01/07/2019,,Education,Description,UNAM
+01/08/2014,BSc. Mechanical Engineering,Education,,UNAM
+01/07/2019,,Education,,UNAM
 02/07/2019,,Education,,
-01/08/2021,Graduate Certicate - Data Science Applied to Financial Markets,Education,Description,ITAM
-01/04/2022,,Education,Description,ITAM
+01/08/2021,Graduate Certicate - Data Science Applied to Financial Markets,Education,,ITAM
+01/04/2022,,Education,,ITAM
 02/04/2022,,Education,,
-01/08/2022,MSc. Data Science,Education,Description,ITAM
-01/07/2023,,Education,Description,ITAM
+01/08/2022,MSc. Data Science,Education,,ITAM
+01/07/2023,,Education,,ITAM
 02/07/2023,,Education,,
-01/07/2015,Design Engineer Jr - Drivetrain ICV,Work Experience,,UNAM Motorsports
-01/07/2016,Design Engineer Sr - Drivetrain ICV,Work Experience,,UNAM Motorsports
-01/07/2017,Design & Manufacturing Engineering Principal,Work Experience,,UNAM Motorsports
-01/07/2018,Team Principal,Work Experience,,UNAM Motorsports
+01/07/2015,Design Engineer Jr - Drivetrain ICV,Work Experience,Assisted the design of a Formula SAE vehicle drivetrain,UNAM Motorsports
+01/07/2016,Design Engineer Sr - Drivetrain ICV,Work Experience,Led the design of a Formula SAE vehicle drivetrain,UNAM Motorsports
+01/07/2017,Design & Manufacturing Engineering Principal,Work Experience,Led the engineering development of a Formula SAE vehicle,UNAM Motorsports
+01/07/2018,Team Principal,Work Experience,"Conceived, designed and implemented the business strategic plan of Formula SAE team",UNAM Motorsports
 01/07/2019,,Work Experience,,UNAM Motorsports
 02/07/2019,,Work Experience,,
 01/10/2022,Data Scientist,Volunteer,,INAI
