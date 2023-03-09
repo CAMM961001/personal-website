@@ -36,10 +36,12 @@ class Resume:
         st.header('Timeline')
         st.write('This is my timeline')
 
+        # Open assets file
         with open('assets/timeline.json', 'r') as file:
             data = json.load(file)
         file.close()
 
+        # Data preprocess to plot
         data = (
             pd.DataFrame(data)
             .assign(
@@ -50,10 +52,13 @@ class Resume:
                 )
         )
         
+        # Plot specs
         fig, ax = plt.subplots(figsize=(16,6))
         ymin, ymax = data.clase.min() - 0.5, data.clase.max() + 0.5
         covid_x = pd.to_datetime('20/03/2020', format='%d/%m/%Y')
+        today = pd.Timestamp.today().date()
 
+        # Covid pandemics reference line
         ax.plot(
             [covid_x, covid_x]
             ,[ymin, ymax]
@@ -64,6 +69,20 @@ class Resume:
             x=covid_x
             ,y=ymin + 0.3
             ,s=' Coronavirus isolation\n is declared in Mexico',
+            alpha=0.4
+        )
+
+        # Today reference line
+        ax.plot(
+            [today, today]
+            ,[ymin, ymax]
+            ,color='red',
+            alpha=0.1
+        )
+        ax.text(
+            x=today
+            ,y=1.3
+            ,s=' The best is\n yet to come...',
             alpha=0.4
         )
 
